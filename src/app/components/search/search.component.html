@@ -1,0 +1,17 @@
+<div class="search-div">
+  <div class="container">
+    <div>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter a username..."
+        #input
+      />
+    </div>
+    <button (click)="searchUser(input.value)">Search</button>
+    <div *ngIf="hasError" class="error-message">
+      <p>No user found with that username.</p>
+    </div>
+    <div *ngIf="isLoading | async" style="color: white">Loading...</div>
+  </div>
+</div>

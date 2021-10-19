@@ -1,0 +1,71 @@
+$fontFamily: "Nunito", sans-serif;
+$whiteColor: #ffffff;
+$mediumColor: #2b3137;
+$inputFontColor: #464646;
+$buttonColor: #28a144;
+$buttonHoverColor: #2dba4e;
+
+.search-div {
+  background-color: $mediumColor;
+  display: flex;
+  align-items: center;
+  height: 170px;
+
+  .container {
+    padding: 0 30px;
+  }
+
+  label {
+    color: $whiteColor;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  input {
+    font: {
+      family: $fontFamily;
+      size: 16px;
+    }
+    color: $inputFontColor;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 8px $whiteColor;
+  }
+
+  button {
+    font: {
+      family: $fontFamily;
+      weight: bold;
+      size: 15px;
+    }
+    background-color: $buttonColor;
+    color: $whiteColor;
+    margin: 10px 0;
+    padding: 7px 22px;
+    border: none;
+    border-radius: 5px;
+    transition: all ease-in-out 0.17s;
+  }
+
+  button:hover {
+    background-color: $buttonHoverColor;
+    cursor: pointer;
+  }
+
+  .error-message {
+    background-color: rgb(231, 209, 209);
+    border-radius: 5px;
+    padding: 8px 10px;
+
+    p {
+      margin: 0;
+      color: rgb(199, 25, 25);
+    }
+  }
+}

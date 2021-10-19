@@ -1,0 +1,91 @@
+<app-search (onUserSearch)="setUserInformation($event)"></app-search>
+<div class="users-div">
+  <div class="container">
+    <div *ngIf="userInformation.id" class="user-card">
+      <div class="user-profile">
+        <img [src]="userInformation.avatar_url" />
+        <p class="user-name">{{ userInformation.name }}</p>
+        <p class="user-login">({{ userInformation.login }})</p>
+        <a class="profile-button" [href]="userInformation.html_url"
+          >Visit profile</a
+        >
+        <div class="user-follows">
+          <i class="bi bi-people"></i>
+          <p>{{ userInformation.followers }} followers</p>
+          <p>·</p>
+          <p>{{ userInformation.following }} followings</p>
+        </div>
+        <p class="user-stars"><i class="bi bi-star"></i> {{ stars }}</p>
+        <p>Member since: {{ userInformation.created_at | date }}</p>
+        <a
+          href="#"
+          (click)="searchFollowers()"
+          class="followers-button"
+          [ngClass]="{
+            'followers-button-selected': followers.length !== 0
+          }"
+          >Show user followers</a
+        >
+        <div *ngIf="followers.length > 0" class="followers-list">
+          <div
+            *ngFor="let follower of followers; trackBy: trackFollower"
+            class="followers-list-item"
+          >
+            <div class="follower-image">
+              <img [src]="follower.avatar_url" />
+            </div>
+            <div class="follower-details">
+              <a [href]="follower.html_url" class="follower-link">{{
+                follower.login
+              }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-details">
+        <p>
+          <i class="bi bi-journal-album"></i>
+          {{ userInformation.public_repos }} repositores
+        </p>
+        <p><i class="bi bi-building"></i> {{ userInformation.company }}</p>
+        <p><i class="bi bi-link-45deg"></i> {{ userInformation.blog }}</p>
+        <p><i class="bi bi-geo-alt"></i> {{ userInformation.location }}</p>
+        <a
+          class="repositories-button"
+          [ngClass]="{
+            'repositories-button-selected': repositories.length !== 0
+          }"
+          href="#"
+          (click)="searchRepositories()"
+          >Show repository list</a
+        >
+        <div *ngIf="repositories.length > 0" class="repositories-list">
+          <div
+            *ngFor="let repository of repositories; trackBy: trackRepository"
+            class="repositories-list-item"
+          >
+            <a [href]="repository.html_url" class="repository-link">{{
+              repository.name
+            }}</a>
+            <p>{{ repository.description }}</p>
+
+            <div class="repository-details">
+              <div class="repository-detail">
+                <i class="bi bi-star"></i>
+                <p>{{ repository.stargazers_count }}</p>
+              </div>
+              <div class="repository-detail">
+                <i class="bi bi-diagram-2"></i>
+                <p>{{ repository.forks }}</p>
+              </div>
+              <div class="repository-detail">
+                <i class="bi bi-eye"></i>
+                <p>{{ repository.watchers }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

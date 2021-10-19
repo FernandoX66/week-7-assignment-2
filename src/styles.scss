@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+$fontFamily: "Nunito", sans-serif;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $fontFamily;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (min-width: 990px) {
+    width: 95%;
+  }
+}

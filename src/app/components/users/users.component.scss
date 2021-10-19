@@ -1,0 +1,265 @@
+$whiteColor: #ffffff;
+$mediumColor: #2d333b;
+$buttonBorderColor: #bbc4cc;
+$buttonFontColor: #fafbfc;
+$loginColor: #a3a3a3;
+$repositoryLinkColor: #0d74e7;
+
+.user-card {
+  padding: 30px 10px;
+
+  @media (min-width: 480px) {
+    padding: 30px 35px;
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    column-gap: 35px;
+  }
+
+  img {
+    max-width: 50%;
+    border-radius: 50%;
+
+    @media (min-width: 768px) {
+      max-width: 60%;
+    }
+  }
+
+  .user-profile {
+    text-align: center;
+
+    .user-name {
+      font: {
+        weight: bold;
+        size: 26px;
+      }
+      margin: 10px 0 0 0;
+    }
+
+    .user-login {
+      color: $loginColor;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .user-follows {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+
+      .bi-people {
+        color: #15161d;
+        font-size: 20px;
+      }
+
+      p {
+        margin: 7px 0;
+      }
+    }
+
+    .user-stars {
+      margin: 0;
+      text-align: center;
+
+      .bi-star {
+        font-size: 16px;
+      }
+    }
+
+    .profile-button {
+      background-color: $whiteColor;
+      color: black;
+      margin: 15px 25px 10px 25px;
+      padding: 5px 0;
+      text-decoration: none;
+      border: 2px solid $buttonBorderColor;
+      border-radius: 5px;
+      display: block;
+      transition: all ease-in-out 0.15s;
+    }
+
+    .profile-button:hover {
+      background-color: #e7ebf0;
+    }
+
+    .followers-button {
+      background-color: #e7ebf0;
+      color: black;
+      margin: 15px auto 0 auto;
+      padding: 8px 0;
+      text: {
+        decoration: none;
+        align: center;
+      }
+      border-radius: 5px;
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      border: 1px solid #dde3eb;
+      transition: all ease-in-out 0.15s;
+    }
+
+    .followers-button:hover {
+      background-color: #cfd6df;
+    }
+
+    .followers-button-selected {
+      border: {
+        top-left-radius: 5px;
+        top-right-radius: 5px;
+        bottom-left-radius: 0;
+        bottom-right-radius: 0;
+      }
+      max-width: 100%;
+      transition: all ease-in-out 0.15s;
+      border-top: 1px solid $buttonBorderColor;
+      border-right: 1px solid $buttonBorderColor;
+      border-left: 1px solid $buttonBorderColor;
+      border-bottom: none;
+      background-color: $mediumColor;
+      color: $buttonFontColor;
+    }
+
+    .followers-list {
+      border: 1px solid $buttonBorderColor;
+      border: {
+        bottom-right-radius: 5px;
+        bottom-left-radius: 5px;
+      }
+
+      .followers-list-item {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        column-gap: 20px;
+        border-bottom: 1px solid $buttonBorderColor;
+        padding: 15px;
+
+        .follower-image {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 100%;
+            max-width: 100%;
+            min-width: 40px;
+          }
+        }
+
+        .follower-details {
+          text-align: left;
+          display: flex;
+          align-items: center;
+
+          .follower-link {
+            font-weight: bold;
+            text-decoration: none;
+            color: $repositoryLinkColor;
+          }
+
+          .follower-link:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .followers-list-item:last-of-type {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .user-details {
+    .repositories-button {
+      background-color: #e7ebf0;
+      color: black;
+      padding: 8px 0;
+      text: {
+        decoration: none;
+        align: center;
+      }
+      border-radius: 5px;
+      display: block;
+      width: 100%;
+
+      @media (min-width: 480px) {
+        max-width: 200px;
+      }
+      border: 1px solid #dde3eb;
+      transition: all ease-in-out 0.15s;
+    }
+
+    .repositories-button:hover {
+      background-color: #cfd6df;
+    }
+
+    .repositories-button-selected {
+      border: {
+        top-left-radius: 5px;
+        top-right-radius: 5px;
+        bottom-left-radius: 0;
+        bottom-right-radius: 0;
+      }
+      transition: all ease-in-out 0.15s;
+      background-color: $mediumColor;
+      color: $buttonFontColor;
+      border: none;
+    }
+
+    .repositories-list {
+      border: 1px solid $buttonBorderColor;
+      border: {
+        bottom-right-radius: 5px;
+        bottom-left-radius: 5px;
+      }
+      @media (min-width: 480px) {
+        border-top-right-radius: 5px;
+      }
+
+      .repositories-list-item {
+        border-bottom: 1px solid $buttonBorderColor;
+        padding: 20px;
+
+        .repository-link {
+          font-weight: bold;
+          text-decoration: none;
+          color: $repositoryLinkColor;
+        }
+
+        .repository-link:hover {
+          text-decoration: underline;
+        }
+
+        .repository-details {
+          display: flex;
+          flex-direction: column;
+
+          @media (min-width: 400px) {
+            flex-direction: row;
+            gap: 25px;
+          }
+
+          .repository-detail {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+
+            p {
+              margin: 5;
+
+              @media (min-width: 400px) {
+                margin: 15px 0;
+              }
+            }
+          }
+        }
+      }
+
+      .repositories-list-item:last-of-type {
+        border-bottom: 0;
+      }
+    }
+  }
+}
